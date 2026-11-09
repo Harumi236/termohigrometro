@@ -1,13 +1,13 @@
 #ifndef SENSOR_H
 #define SENSOR_H
+#include <Arduino.h>
+#include <medicion.h>
 
 // Inicializa el sensor
 void InicializarSensor();
 
-// Obtiene la temperatura en grados Celsius
-float LeerTemperatura();
 
-// Obtiene la humedad relativa en porcentaje
-float LeerHumedad();
+// Leer temperatura y humedad del sensor
+void LeerDatosSensor(Medicion &medicion);
 
 #endif

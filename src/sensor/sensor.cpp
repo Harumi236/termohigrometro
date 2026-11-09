@@ -13,22 +13,8 @@ void InicializarSensor() {
 
 }
 
-// Lectura de temperatura
-float LeerTemperatura() {
-
-    // Valor simulado
-    float temperatura = 19.5;
-
-    return temperatura;
-
-}
-
-// Lectura de humedad
-float LeerHumedad() {
-
-    // Valor simulado
-    float humedad = 52.3;
-
-    return humedad;
-
+// Leer temperatura y humedad del sensor
+void LeerDatosSensor(Medicion &medicion) {
+    medicion.temperatura = 912.0; // LeerTemperatura();
+    medicion.humedad = 12.0; // LeerHumedad();
 }

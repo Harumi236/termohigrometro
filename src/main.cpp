@@ -1,7 +1,10 @@
 #include <Arduino.h>
 #include <sensor/sensor.h>
+#include <medicion.h>
+#include <reloj/reloj.h>
 
-
+// Identificacion del dispositivo
+const int ID_DISPOSITIVO = 1; // Cambiar a un valor unico para cada dispositivo
 
 void setup() {
 	Serial.begin(115200);
@@ -10,17 +13,32 @@ void setup() {
 
 void loop() {
 
-  	float temperatura = LeerTemperatura();
-  	float humedad = LeerHumedad();
+	Medicion medicion;
 
-	Serial.print("Temperatura: ");
- 	Serial.print(temperatura);
-  	Serial.println(" °C");
+	medicion.id_dispositivo = ID_DISPOSITIVO;
 
-  	Serial.print("Humedad: ");
-  	Serial.print(humedad);
-  	Serial.println(" %");
+  	LeerDatosSensor(medicion);
 
-	delay(5000); // Espera 5 segundos antes de la siguiente lectura
+	ObtenerFechaHora(medicion);
+
+
+	// Mostrar resultados
+    Serial.println("----------------------");
+
+    Serial.print("Dispositivo: ");
+    Serial.println(medicion.id_dispositivo);
+
+    Serial.print("Temperatura: ");
+    Serial.print(medicion.temperatura);
+    Serial.println(" °C");
+
+    Serial.print("Humedad: ");
+    Serial.print(medicion.humedad);
+    Serial.println(" %");
+
+	Serial.print("Fecha y hora: ");
+    Serial.println(medicion.fecha_hora);
+
+    delay(5000);
 }
 

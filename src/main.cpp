@@ -1,18 +1,26 @@
 #include <Arduino.h>
+#include <sensor/sensor.h>
 
-// put function declarations here:
-int myFunction(int, int);
+
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+	Serial.begin(115200);
+  	InicializarSensor();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+
+  	float temperatura = LeerTemperatura();
+  	float humedad = LeerHumedad();
+
+	Serial.print("Temperatura: ");
+ 	Serial.print(temperatura);
+  	Serial.println(" °C");
+
+  	Serial.print("Humedad: ");
+  	Serial.print(humedad);
+  	Serial.println(" %");
+
+	delay(5000); // Espera 5 segundos antes de la siguiente lectura
 }
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
-}

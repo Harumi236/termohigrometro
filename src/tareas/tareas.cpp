@@ -8,10 +8,6 @@
 #include "pantalla/pantalla.h"
 #include "almacenamiento/almacenamiento.h"
 
-// Intervalos de funcionamiento
-const unsigned long INTERVALO_MEDICION = 15000;
-const unsigned long INTERVALO_REGISTRO = 900000;
-
 // Temporizadores independientes
 unsigned long ultima_medicion = 0;
 unsigned long ultimo_registro = 0;

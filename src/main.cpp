@@ -21,7 +21,8 @@ void loop() {
     GestionarAlertas();
 
     // Gestionar comunicacion con la central
-    GestionarTransmision()
-    
+    GestionarTransmision();
+
 }
+
 
